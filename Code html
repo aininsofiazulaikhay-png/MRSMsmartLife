@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MRSM SmartLife</title>
+
+<style>
+
+/* =========================
+   ASAS
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f0ff;
+    color: #241633;
+    padding-bottom: 90px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    background: linear-gradient(135deg, #4b168c, #8a42d6);
+    color: white;
+    padding: 25px 20px 30px;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 5px 20px rgba(90, 40, 150, 0.25);
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 55px;
+    height: 55px;
+    background: white;
+    color: #6622a0;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.header h1 {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.header p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    display: none;
+    padding: 20px;
+    max-width: 650px;
+    margin: auto;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* =========================
+   WELCOME CARD
+========================= */
+
+.welcome {
+    background: white;
+    margin-top: -10px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 18px rgba(60,30,100,0.08);
+}
+
+.welcome h2 {
+    color: #6423a2;
+    margin-bottom: 7px;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+    margin: 25px 0 15px;
+    color: #4e197e;
+}
+
+
+/* =========================
+   MENU GRID
+========================= */
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.menu-button {
+    border: none;
+    background: white;
+    padding: 20px 12px;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(70,30,100,0.08);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu-button:hover {
+    transform: translateY(-4px);
+}
+
+.menu-icon {
+    width: 50px;
+    height: 50px;
+    background: #eee1ff;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.menu-button h3 {
+    color: #4d197c;
+    margin-bottom: 5px;
+}
+
+.menu-button p {
+    color: #777;
+    font-size: 12px;
+}
+
+
+/* =========================
+   ANNOUNCEMENT
+========================= */
+
+.announcement {
+    background: white;
+    padding: 18px;
+    border-radius: 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(60,30,100,0.07);
+}
+
+.announcement h3 {
+    color: #5b2091;
+    margin-bottom: 8px;
+}
+
+.announcement p {
+    color: #555;
+    line-height: 1.5;
+}
+
+.date {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #9270aa;
+}
+
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+.page-title {
+    margin-bottom: 20px;
+}
+
+.page-title h2 {
+    color: #541b88;
+    font-size: 24px;
+}
+
+.page-title p {
+    color: #777;
+    margin-top: 5px;
+}
+
+
+/* =========================
+   JADUAL
+========================= */
+
+select,
+input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: white;
+    margin: 8px 0 18px;
+    font-size: 15px;
+}
+
+.schedule {
+    background: white;
+    padding: 10px;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #6b29a4;
+    color: white;
+    padding: 13px;
+    text-align: left;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid #eee;
+}
+
+td:first-child {
+    color: #6423a2;
+    font-weight: bold;
+}
+
+
+/* =========================
+   MENU MAKANAN
+========================= */
+
+.food {
+    background: white;
+    padding: 18px;
+    border-radius: 18px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(60,30,100,0.07);
+}
+
+.food-icon {
+    font-size: 35px;
+}
+
+.food h3 {
+    color: #5a218d;
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+   KEHADIRAN
+========================= */
+
+.form-card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(60,30,100,0.08);
+}
+
+.form-card label {
+    display: block;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.radio-box {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0 20px;
+}
+
+.radio-box label {
+    background: #f2e9ff;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: normal;
+    flex: 1;
+}
+
+.submit {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#5b1b91,#8a42d6);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* =========================
+   AKTIVITI
+========================= */
+
+.activity {
+    background: white;
+    padding: 18px;
+    border-radius: 18px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.activity-icon {
+    font-size: 40px;
+}
+
+.activity h3 {
+    color: #5b218e;
+    margin-bottom: 6px;
+}
+
+
+/* =========================
+   PROFIL
+========================= */
+
+.profile {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 22px;
+    text-align: center;
+}
+
+.profile-icon {
+    width: 85px;
+    height: 85px;
+    background: #eadbff;
+    border-radius: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+}
+
+.profile h2 {
+    color: #5b208d;
+    margin: 15px 0 5px;
+}
+
+.profile-info {
+    background: #f5efff;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.profile-info p {
+    padding: 8px 0;
+}
+
+
+/* =========================
+   BOTTOM NAVIGATION
+========================= */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -5px 20px rgba(60,30,100,0.12);
+    z-index: 999;
+}
+
+.bottom-nav button {
+    border: none;
+    background: none;
+    color: #777;
+    cursor: pointer;
+    font-size: 21px;
+}
+
+.bottom-nav button.active {
+    color: #6524a0;
+}
+
+.bottom-nav span {
+    display: block;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:400px) {
+
+    .header h1 {
+        font-size: 21px;
+    }
+
+    .menu-grid {
+        gap: 10px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="header-top">
+
+        <div>
+            <h1>MRSM SmartLife</h1>
+            <p>Smart • Easy • Connected</p>
+        </div>
+
+        <div class="logo">
+            🎓
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section id="home" class="page active">
+
+    <div class="welcome">
+
+        <h2>Selamat Datang! 👋</h2>
+
+        <p>
+            Urus kehidupan harian MRSM anda
+            dengan lebih mudah.
+        </p>
+
+    </div>
+
+
+    <h2 class="section-title">
+        Menu Utama
+    </h2>
+
+
+    <div class="menu-grid">
+
+
+        <button class="menu-button"
+        onclick="openPage('jadual',this)">
+
+            <div class="menu-icon">
+                📚
+            </div>
+
+            <h3>Jadual</h3>
+
+            <p>
+                Lihat jadual kelas
+            </p>
+
+        </button>
+
+
+
+        <button class="menu-button"
+        onclick="openPage('menu',this)">
+
+            <div class="menu-icon">
+                🍽️
+            </div>
+
+            <h3>Menu Makanan</h3>
+
+            <p>
+                Menu harian
+            </p>
+
+        </button>
+
+
+
+        <button class="menu-button"
+        onclick="openPage('kehadiran',this)">
+
+            <div class="menu-icon">
+                ✅
+            </div>
+
+            <h3>Kehadiran</h3>
+
+            <p>
+                Hantar kehadiran
+            </p>
+
+        </button>
+
+
+
+        <button class="menu-button"
+        onclick="openPage('pengumuman',this)">
+
+            <div class="menu-icon">
+                📢
+            </div>
+
+            <h3>Pengumuman</h3>
+
+            <p>
+                Maklumat terkini
+            </p>
+
+        </button>
+
+
+
+        <button class="menu-button"
+        onclick="openPage('aktiviti',this)">
+
+            <div class="menu-icon">
+                🏆
+            </div>
+
+            <h3>Aktiviti</h3>
+
+            <p>
+                Program MRSM
+            </p>
+
+        </button>
+
+
+
+        <button class="menu-button"
+        onclick="openPage('profil',this)">
+
+            <div class="menu-icon">
+                👤
+            </div>
+
+            <h3>Profil</h3>
+
+            <p>
+                Maklumat pelajar
+            </p>
+
+        </button>
+
+
+    </div>
+
+
+    <h2 class="section-title">
+        📢 Pengumuman Terkini
+    </h2>
+
+
+    <div class="announcement">
+
+        <h3>
+            📌 Perhimpunan Mingguan
+        </h3>
+
+        <p>
+            Perhimpunan mingguan akan
+            diadakan di Dewan Utama.
+        </p>
+
+        <span class="date">
+            Hari ini • 7:30 pagi
+        </span>
+
+    </div>
+
+
+    <div class="announcement">
+
+        <h3>
+            🏆 Aktiviti Kokurikulum
+        </h3>
+
+        <p>
+            Aktiviti kokurikulum akan
+            dijalankan pada hari Rabu.
+        </p>
+
+        <span class="date">
+            13 September 2026
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     JADUAL
+========================= -->
+
+<section id="jadual" class="page">
+
+    <div class="page-title">
+
+        <h2>📚 Jadual Kelas</h2>
+
+        <p>
+            Jadual kelas mingguan
+        </p>
+
+    </div>
+
+
+    <label>
+        Pilih hari
+    </label>
+
+    <select id="day"
+    onchange="changeSchedule()">
+
+        <option value="isnin">
+            Isnin
+        </option>
+
+        <option value="selasa">
+            Selasa
+        </option>
+
+        <option value="rabu">
+            Rabu
+        </option>
+
+        <option value="khamis">
+            Khamis
+        </option>
+
+        <option value="jumaat">
+            Jumaat
+        </option>
+
+    </select>
+
+
+    <div class="schedule">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Masa
+                    </th>
+
+                    <th>
+                        Subjek
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="scheduleData">
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MENU MAKANAN
+========================= -->
+
+<section id="menu" class="page">
+
+    <div class="page-title">
+
+        <h2>🍽️ Menu Makanan</h2>
+
+        <p>
+            Menu makanan hari ini
+        </p>
+
+    </div>
+
+
+    <div class="food">
+
+        <div class="food-icon">
+            🌅
+        </div>
+
+        <div>
+
+            <h3>
+                Sarapan
+            </h3>
+
+            <p>
+                Nasi Lemak + Telur + Buah
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="food">
+
+        <div class="food-icon">
+            ☀️
+        </div>
+
+        <div>
+
+            <h3>
+                Makan Tengah Hari
+            </h3>
+
+            <p>
+                Nasi + Ayam Masak Merah
+                + Sayur
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="food">
+
+        <div class="food-icon">
+            🌇
+        </div>
+
+        <div>
+
+            <h3>
+                Minum Petang
+            </h3>
+
+            <p>
+                Kuih + Teh
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="food">
+
+        <div class="food-icon">
+            🌙
+        </div>
+
+        <div>
+
+            <h3>
+                Makan Malam
+            </h3>
+
+            <p>
+                Nasi + Ikan Goreng
+                + Sup Sayur
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PENGUMUMAN
+========================= -->
+
+<section id="pengumuman" class="page">
+
+    <div class="page-title">
+
+        <h2>📢 Pengumuman</h2>
+
+        <p>
+            Maklumat terkini MRSM
+        </p>
+
+    </div>
+
+
+    <div class="announcement">
+
+        <h3>
+            📌 Perhimpunan Mingguan
+        </h3>
+
+        <p>
+            Perhimpunan mingguan akan
+            diadakan di Dewan Utama.
+        </p>
+
+        <span class="date">
+            14 September 2026
+        </span>
+
+    </div>
+
+
+    <div class="announcement">
+
+        <h3>
+            🏃 Hari Sukan
+        </h3>
+
+        <p>
+            Semua pelajar dijemput
+            menyertai aktiviti Hari Sukan.
+        </p>
+
+        <span class="date">
+            20 September 2026
+        </span>
+
+    </div>
+
+
+    <div class="announcement">
+
+        <h3>
+            🔬 Minggu Sains
+        </h3>
+
+        <p>
+            Pelbagai aktiviti menarik
+            akan dijalankan.
+        </p>
+
+        <span class="date">
+            25 September 2026
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     KEHADIRAN
+========================= -->
+
+<section id="kehadiran" class="page">
+
+    <div class="page-title">
+
+        <h2>✅ Kehadiran</h2>
+
+        <p>
+            Hantar rekod kehadiran
+        </p>
+
+    </div>
+
+
+    <div class="form-card">
+
+        <label>
+            Nama Pelajar
+        </label>
+
+        <input
+        id="studentName"
+        type="text"
+        placeholder="Masukkan nama">
+
+
+        <label>
+            Tingkatan
+        </label>
+
+        <select id="level">
+
+            <option>
+                Pilih tingkatan
+            </option>
+
+            <option>
+                Tingkatan 1
+            </option>
+
+            <option>
+                Tingkatan 2
+            </option>
+
+            <option>
+                Tingkatan 3
+            </option>
+
+            <option>
+                Tingkatan 4
+            </option>
+
+            <option>
+                Tingkatan 5
+            </option>
+
+        </select>
+
+
+        <label>
+            Kelas
+        </label>
+
+        <input
+        id="className"
+        type="text"
+        placeholder="Contoh: 4 Ibnu Sina">
+
+
+        <label>
+            Status
+        </label>
+
+
+        <div class="radio-box">
+
+            <label>
+
+                <input
+                type="radio"
+                name="status"
+                value="Hadir">
+
+                ✅ Hadir
+
+            </label>
+
+
+            <label>
+
+                <input
+                type="radio"
+                name="status"
+                value="Tidak Hadir">
+
+                ❌ Tidak Hadir
+
+            </label>
+
+        </div>
+
+
+        <button
+        class="submit"
+        onclick="submitAttendance()">
+
+            Hantar Kehadiran
+
+        </button>
+
+
+        <p
+        id="message"
+        style="text-align:center;margin-top:15px;">
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     AKTIVITI
+========================= -->
+
+<section id="aktiviti" class="page">
+
+    <div class="page-title">
+
+        <h2>🏆 Aktiviti MRSM</h2>
+
+        <p>
+            Aktiviti akan datang
+        </p>
+
+    </div>
+
+
+    <div class="activity">
+
+        <div class="activity-icon">
+            🏃
+        </div>
+
+        <div>
+
+            <h3>
+                Hari Sukan
+            </h3>
+
+            <p>
+                📅 20 September 2026
+            </p>
+
+            <p>
+                📍 Padang MRSM
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="activity">
+
+        <div class="activity-icon">
+            🔬
+        </div>
+
+        <div>
+
+            <h3>
+                Minggu Sains
+            </h3>
+
+            <p>
+                📅 25 September 2026
+            </p>
+
+            <p>
+                📍 Dewan Utama
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="activity">
+
+        <div class="activity-icon">
+            🤖
+        </div>
+
+        <div>
+
+            <h3>
+                Pertandingan Inovasi
+            </h3>
+
+            <p>
+                📅 30 September 2026
+            </p>
+
+            <p>
+                📍 Makmal Inovasi
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROFIL
+========================= -->
+
+<section id="profil" class="page">
+
+    <div class="page-title">
+
+        <h2>👤 Profil</h2>
+
+        <p>
+            Maklumat pelajar
+        </p>
+
+    </div>
+
+
+    <div class="profile">
+
+        <div class="profile-icon">
+            👤
+        </div>
+
+        <h2>
+            Nama Pelajar
+        </h2>
+
+        <p>
+            Pelajar MRSM
+        </p>
+
+
+        <div class="profile-info">
+
+            <p>
+                🎓 <b>Tingkatan:</b>
+                Tingkatan 4
+            </p>
+
+            <p>
+                📚 <b>Kelas:</b>
+                4 Ibnu Sina
+            </p>
+
+            <p>
+                🏫 <b>Institusi:</b>
+                MRSM
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     BOTTOM NAVIGATION
+========================= -->
+
+<nav class="bottom-nav">
+
+
+    <button
+    onclick="openPage('home',this)"
+    class="active">
+
+        🏠
+
+        <span>
+            Home
+        </span>
+
+    </button>
+
+
+    <button
+    onclick="openPage('jadual',this)">
+
+        📚
+
+        <span>
+            Jadual
+        </span>
+
+    </button>
+
+
+    <button
+    onclick="openPage('menu',this)">
+
+        🍽️
+
+        <span>
+            Menu
+        </span>
+
+    </button>
+
+
+    <button
+    onclick="openPage('pengumuman',this)">
+
+        📢
+
+        <span>
+            Info
+        </span>
+
+    </button>
+
+
+    <button
+    onclick="openPage('profil',this)">
+
+        👤
+
+        <span>
+            Profil
+        </span>
+
+    </button>
+
+
+</nav>
+
+
+
+<script>
+
+/* =========================
+   TUKAR PAGE
+========================= */
+
+function openPage(pageId, button) {
+
+    const pages =
+        document.querySelectorAll(".page");
+
+    pages.forEach(page => {
+
+        page.classList.remove("active");
+
+    });
+
+
+    document
+        .getElementById(pageId)
+        .classList.add("active");
+
+
+    const navButtons =
+        document.querySelectorAll(
+            ".bottom-nav button"
+        );
+
+    navButtons.forEach(btn => {
+
+        btn.classList.remove("active");
+
+    });
+
+
+    if(button &&
+       button.closest(".bottom-nav")) {
+
+        button.classList.add("active");
+
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+
+/* =========================
+   DATA JADUAL
+========================= */
+
+const schedule = {
+
+    isnin: [
+        ["7:30 - 8:30","Matematik"],
+        ["8:30 - 9:30","Bahasa Melayu"],
+        ["10:00 - 11:00","Fizik"],
+        ["11:00 - 12:00","Biologi"],
+        ["2:30 - 3:30","Pendidikan Islam"]
+    ],
+
+    selasa: [
+        ["7:30 - 8:30","Kimia"],
+        ["8:30 - 9:30","Bahasa Inggeris"],
+        ["10:00 - 11:00","Matematik"],
+        ["11:00 - 12:00","Sejarah"],
+        ["2:30 - 3:30","Pendidikan Jasmani"]
+    ],
+
+    rabu: [
+        ["7:30 - 8:30","Biologi"],
+        ["8:30 - 9:30","Fizik"],
+        ["10:00 - 11:00","Bahasa Melayu"],
+        ["11:00 - 12:00","Kimia"],
+        ["2:30 - 4:00","Kokurikulum"]
+    ],
+
+    khamis: [
+        ["7:30 - 8:30","Matematik"],
+        ["8:30 - 9:30","Sejarah"],
+        ["10:00 - 11:00","Bahasa Inggeris"],
+        ["11:00 - 12:00","Kimia"],
+        ["2:30 - 3:30","Matematik Tambahan"]
+    ],
+
+    jumaat: [
+        ["7:30 - 8:30","Pendidikan Islam"],
+        ["8:30 - 9:30","Bahasa Melayu"],
+        ["10:00 - 11:00","Matematik"],
+        ["11:00 - 12:00","Biologi"]
+    ]
+
+};
+
+
+
+/* =========================
+   PAPAR JADUAL
+========================= */
+
+function changeSchedule() {
+
+    const day =
+        document.getElementById("day").value;
+
+    const table =
+        document.getElementById("scheduleData");
+
+    table.innerHTML = "";
+
+
+    schedule[day].forEach(item => {
+
+        const row =
+            document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${item[0]}</td>
+            <td>${item[1]}</td>
+        `;
+
+        table.appendChild(row);
+
+    });
+
+}
+
+
+changeSchedule();
+
+
+
+/* =========================
+   KEHADIRAN
+========================= */
+
+function submitAttendance() {
+
+    const name =
+        document.getElementById(
+            "studentName"
+        ).value;
+
+    const level =
+        document.getElementById(
+            "level"
+        ).value;
+
+    const className =
+        document.getElementById(
+            "className"
+        ).value;
+
+    const status =
+        document.querySelector(
+            'input[name="status"]:checked'
+        );
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    if(
+        name === "" ||
+        level === "Pilih tingkatan" ||
+        className === "" ||
+        !status
+    ){
+
+        message.textContent =
+            "⚠️ Sila lengkapkan semua maklumat.";
+
+        message.style.color = "red";
+
+        return;
+
+    }
+
+
+    message.textContent =
+        "✅ Kehadiran berjaya dihantar!";
+
+    message.style.color =
+        "#5b1d8c";
+
+
+    document.getElementById(
+        "studentName"
+    ).value = "";
+
+    document.getElementById(
+        "className"
+    ).value = "";
+
+}
+
+</script>
+
+</body>
+</html>
